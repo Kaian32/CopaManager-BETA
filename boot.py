@@ -59,10 +59,11 @@ boot_text = """
 """
 print(boot_logo)
 time.sleep(1)
-for x in range (0,10):  
-    texto_load = "Carregando o Copa Manager" + "." * x
-    print (texto_load, end="\r")
-    time.sleep(0.5)
+import filecheck
+#for x in range (0,5):
+#  texto_load = "Carregando o Copa Manager" + "." * x
+#  print (texto_load, end="\r")
+#  time.sleep(0.5)
 time.sleep(1)
 print(boot_text)
 time.sleep(0.5)
