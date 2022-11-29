@@ -39,15 +39,53 @@ def novo_jogo():
     confirma = input("Deseja Realmente adicionar um novo jogo?\n1) Sim\n2) Não\n")
     if (confirma == "1"):
         with open ("jogos.jogos", "a+") as equipes:
-            equipes.write(str(input("Insira o resultado do jogo: ").upper()))
-            equipes.write("\n")
+            equipes.write(str(input("Insira o nome da equipe 1: ").upper()))
+            equipes.write(str("(|)"))
+            equipes.write(str(input("Insira o nome da equipe 2: ").upper()))
+            equipes.write(str("(|)"))
+            equipes.write(str(input("Insira a quantidade de gols da equipe 1: ").upper()))
+            equipes.write(str("(|)"))
+            equipes.write(str(input("Insira a quantidade de gols da equipe 2: ").upper()))
+            equipes.write(str("(|)"))
+            equipes.write(str(input("Insira a quantidade total de faltas: ").upper()))
+            equipes.write(str("(|)"))
     system("cls")
+
+def todos_jogos():
+    system("cls")
+    jogos_file = open("jogos.jogos","r")
+    jogos = jogos_file.read()
+    jogos_lista = [jogos.split("(|)")]
+    for jogos_lista in range(4):
+        print(jogos_lista(1))
+        print(jogos_lista(2))
+        print(jogos_lista(3))
+        print(jogos_lista(4))
+    print(jogos_lista)
+    escolha = input("\nAperte qualquer botão para retornar ao menu principal. ")
+    escolha = escolha.strip()
+    match escolha:
+        case other:
+            system("cls")
+            return
+    
+def todas_equipes():
+    system("cls")
+    
+    escolha = input("\nAperte qualquer botão para retornar ao menu principal. ")
+    escolha = escolha.strip()
+    match escolha:
+        case other:
+            system("cls")
+            return
 
 while True:
     print("Selecione uma das opções abaixo:")
     print("1) SAIR\nFecha o aplicativo.")
     print("2) Nova Equipe\nAdiciona uma nova equipe ao dados.")
     print("3) Novo Jogo\nAdiciona um novo jogo aos dados.")
+    print("4) Todos os jogos\nAbre uma tela detalhada com todos os jogos gravados.")
+    print("5) Todas as equipes\nAbre uma tela detalhada com todos os jogos gravados.")
     print(f'\n\nTotal de Jogos = {leitor_jogos()}')
     print(f'Total de Equipes = {leitor_equipes()}')
 
@@ -63,6 +101,10 @@ while True:
             nova_equipe()
         case "3":
             novo_jogo()
+        case "4":
+            todos_jogos()
+        case "5":
+            todos_jogos()
         case other:
             system("cls")
             print("Esta opção não é válida! Tente novamente!")
